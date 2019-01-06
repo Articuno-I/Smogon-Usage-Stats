@@ -23,32 +23,32 @@ What follows is basic script usage, assuming everything is stored in the folders
 
 To process PS logs for a given tier (say Little Cup) for a given day (say 2013-06-03):
 
-$python batchLogReader.py /logs/2013-06/lc/2013-06-03/ lc
+```$ python batchLogReader.py /logs/2013-06/lc/2013-06-03/ lc```
 
 The first argument gives the location of the folder. The second gives the name of the metagame.
 
 
 Now let's assume all the logs are processed and their intermediate files stored in /Smogon-Usage/Stats/Raw/. Then to generate all usage stats except for metagame analyses:
 
-$python StatCounter.py lc
+```$ python StatCounter.py lc```
 
 The first argument is the name of the tier. Note that StatCounter.py can also take a second argument, which gives the (Glicko2) rating cutoff for weighted stats. If no argument is given, the standard 1500 cutoff is assumed. If you want unweighted stats, use:
 
-$python StatCounter.py lc 0
+```$ python StatCounter.py lc 0```
 
 and if you want "1850" stats, use:
 
-$python StatCounter.py lc 1850
+```$ python StatCounter.py lc 1850```
 
 Now if you want detailed moveset statistics, use the batchMovesetCounter.py script:
 
-$python batchMovesetCounter.py lc > Stats/moveset/lc.txt
+```$ python batchMovesetCounter.py lc > Stats/moveset/lc.txt```
 
 Note that the moveset stats are written to stdout, so you need to redirect the output to the file where you want the stats stored (make sure the Stats/moveset/ folder exists).
 
 If you want moveset stats for a different cutoff besides the standard 1500, use the same syntax as before. For example, for 1850 moveset stats, use:
 
-$python batchMovesetCounter.py lc 1850 > Stats/moveset/lc-1850.txt
+```$ python batchMovesetCounter.py lc 1850 > Stats/moveset/lc-1850.txt```
 
 
 
